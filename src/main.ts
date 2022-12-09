@@ -47,6 +47,11 @@ app.component("IconifyIconOffline", IconifyIconOffline);
 app.component("IconifyIconOnline", IconifyIconOnline);
 app.component("FontIcon", FontIcon);
 
+import WDialog from "./components/common/WDialog.vue";
+import Ellipsis from "./components/common/Ellipsis.vue";
+app.component("WDialog", WDialog);
+app.component("Ellipsis", Ellipsis);
+
 // 全局注册按钮级别权限组件
 import { Auth } from "@/components/ReAuth";
 app.component("Auth", Auth);

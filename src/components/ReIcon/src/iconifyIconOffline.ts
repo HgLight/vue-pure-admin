@@ -33,6 +33,8 @@ import EpArrowDown from "@iconify-icons/ep/arrow-down";
 import ArrowUp from "@iconify-icons/ep/arrow-up";
 import ArrowRight from "@iconify-icons/ep/arrow-right";
 import ArrowLeft from "@iconify-icons/ep/arrow-left";
+import Platform from "@iconify-icons/ep/platform";
+import UserFilled from "@iconify-icons/ep/user-filled";
 addIcon("check", Check);
 addIcon("menu", Menu);
 addIcon("home-filled", HomeFilled);
@@ -64,6 +66,8 @@ addIcon("ep-arrow-down", EpArrowDown);
 addIcon("ep-arrow-up", ArrowUp);
 addIcon("ep-arrow-right", ArrowRight);
 addIcon("ep-arrow-left", ArrowLeft);
+addIcon("ep-platform", Platform);
+addIcon("ep-user-filled", UserFilled);
 
 // remixicon
 import ArrowRightSLine from "@iconify-icons/ri/arrow-right-s-line";

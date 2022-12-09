@@ -56,6 +56,54 @@ const systemRouter = {
   ]
 };
 
+const OARouter = {
+  path: "/OA",
+  meta: {
+    icon: "setting",
+    title: "OA工作流",
+    rank: 11
+  },
+  children: [
+    {
+      path: "/oa/home/index",
+      name: "OAHome",
+      meta: {
+        icon: "flUser",
+        title: "首页",
+        roles: ["admin"]
+      }
+    },
+    {
+      path: "/oa/formsPanel/index",
+      name: "OAFormsPanel",
+      meta: {
+        icon: "role",
+        title: "表单列表",
+        roles: ["admin"]
+      }
+    },
+    {
+      path: "/oa/workSpace/index",
+      name: "OAWorkSpace",
+      meta: {
+        icon: "dept",
+        title: "工作区",
+        roles: ["admin"]
+      }
+    },
+    {
+      path: "/oa/design/index",
+      name: "OADesign",
+      meta: {
+        icon: "dict",
+        title: "表单流程设计",
+        keepAlive: true,
+        roles: ["admin"]
+      }
+    }
+  ]
+};
+
 const permissionRouter = {
   path: "/permission",
   meta: {
@@ -168,7 +216,13 @@ export default [
     response: () => {
       return {
         success: true,
-        data: [systemRouter, permissionRouter, frameRouter, tabsRouter]
+        data: [
+          OARouter,
+          systemRouter,
+          permissionRouter,
+          frameRouter,
+          tabsRouter
+        ]
       };
     }
   }
