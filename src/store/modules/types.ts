@@ -21,6 +21,53 @@ export type appType = {
   device: string;
 };
 
+export type FormPermsType = {
+  id: string;
+  title: string;
+  required: boolean;
+  perm: string;
+};
+
+export type NodePropsGroupsType = {
+  groupType: string;
+  cids: string;
+  conditions: Array<any>;
+};
+export type FormItemType = {
+  id: string;
+  title: string;
+  icon: string;
+};
+export type OAType = {
+  nodeMap: Map<any, any>;
+  isEdit: boolean;
+  selectedNode: {
+    id: string;
+    parentId: string;
+    name: string;
+    type: string;
+    props: {
+      formPerms: Array<FormPermsType>;
+      groups: Array<any>;
+    };
+  };
+  selectFormItem: FormItemType;
+  design: {
+    groupId: string;
+    group: string;
+    formId: string;
+    formName: string;
+    logo: {
+      icon: string;
+      background: string;
+    };
+    settings: [];
+    process: [];
+    formItems: [];
+    remark: string;
+  };
+};
+
 export type multiType = {
   path: string;
   parentPath: string;

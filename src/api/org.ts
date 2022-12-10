@@ -1,4 +1,4 @@
-import request from "@/api/request.js";
+import request from "@/api/request";
 
 // 查询组织架构树
 export function getOrgTree(param) {
