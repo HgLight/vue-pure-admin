@@ -10,7 +10,7 @@ import { useOAStoreHook } from "@/store/modules/oa";
 // import FormDesign from "./components/FormDesign.vue";
 import LayoutHeader from "./components/LayoutHeader.vue";
 // import ProcessDesign from "./components/ProcessDesign.vue";
-// import FormProSetting from "./components/FormProSetting.vue";
+import FormProSetting from "./components/FormProSetting.vue";
 import FormBaseSetting from "./components/FormBaseSetting.vue";
 import { getFormDetail, createForm, updateFormDetail } from "@/api/design";
 
@@ -274,11 +274,8 @@ design.value.groupId = !isEmpty(group) ? parseInt(group) : null;
       <process-design
         ref="processDesign"
         v-show="activeSelect === 'processDesign'"
-      />
-      <form-pro-setting
-        ref="proSetting"
-        v-show="activeSelect === 'proSetting'"
       /> -->
+      <FormProSetting ref="proSetting" v-show="activeSelect === 'proSetting'" />
     </div>
     <WDialog :showFooter="false" v-model="validVisible" title="设置项检查">
       <el-steps align-center :active="validStep" finish-status="success">
