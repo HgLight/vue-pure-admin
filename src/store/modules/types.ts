@@ -21,6 +21,11 @@ export type appType = {
   device: string;
 };
 
+export type OAUserType = {
+  id: string;
+  name: string;
+};
+
 export type FormPermsType = {
   id: string;
   title: string;
@@ -53,7 +58,7 @@ export type OAType = {
   };
   selectFormItem: FormItemType;
   design: {
-    groupId: string;
+    groupId: number;
     group: string;
     formId: string;
     formName: string;
@@ -61,8 +66,28 @@ export type OAType = {
       icon: string;
       background: string;
     };
-    settings: [];
-    process: [];
+    settings: {
+      commiter: [];
+      admin: OAUserType[];
+      sign: boolean;
+      nowUserSelect: string;
+      notify: {
+        types: string[]; //APP
+        title: "消息通知标题";
+      };
+    };
+    process: {
+      id: "root";
+      parentId: null;
+      type: "ROOT";
+      name: "发起人";
+      desc: "任何人";
+      props: {
+        assignedUser: [];
+        formPerms: [];
+      };
+      children: {};
+    };
     formItems: [];
     remark: string;
   };
