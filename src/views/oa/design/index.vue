@@ -258,7 +258,7 @@ design.value.groupId = !isEmpty(group) ? parseInt(group) : null;
 
 <template>
   <el-container>
-    <el-header style="background: white">
+    <el-header>
       <LayoutHeader
         v-model="activeSelect"
         @publish="publishProcess"

@@ -4,6 +4,7 @@ import { storeToRefs } from "pinia";
 import draggable from "vuedraggable/src/vuedraggable";
 
 import { useOAStoreHook } from "@/store/modules/oa";
+import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 import FormRender from "@/views/oa/common/form/FormRender.vue";
 import FormDesignRender from "@/views/oa/common/form/FormDesignRender.vue";
 import FormComponentConfig from "@/views/oa/common/form/FormComponentConfig.vue";
@@ -175,23 +176,24 @@ defineExpose({ validate });
     </el-aside>
 
     <el-main class="layout-main">
-      <div class="tool-nav">
-        <div>
+      <div class="flex justify-between tool-nav">
+        <div class="flex">
           <el-tooltip
             class="item"
             effect="dark"
             content="撤销"
             placement="bottom-start"
           >
-            <i class="el-icon-refresh-left" />
+            <component :is="useRenderIcon('refresh-left')" />
           </el-tooltip>
+
           <el-tooltip
             class="item"
             effect="dark"
             content="恢复"
             placement="bottom-start"
           >
-            <i class="el-icon-refresh-right" />
+            <component :is="useRenderIcon('refresh-right')" />
           </el-tooltip>
         </div>
         <div>
@@ -201,7 +203,7 @@ defineExpose({ validate });
             content="预览表单"
             placement="bottom-start"
           >
-            <i class="el-icon-view" @click="viewForms" />
+            <component :is="useRenderIcon('view')" @click="viewForms" />
           </el-tooltip>
           <el-tooltip
             class="item"
@@ -209,8 +211,9 @@ defineExpose({ validate });
             content="移动端"
             placement="bottom-start"
           >
-            <i
-              :class="{ 'el-icon-mobile': true, select: showMobile }"
+            <component
+              :is="useRenderIcon('iphone')"
+              :class="{ select: showMobile }"
               @click="showMobile = true"
             />
           </el-tooltip>
@@ -220,8 +223,9 @@ defineExpose({ validate });
             content="PC端"
             placement="bottom-start"
           >
-            <i
-              :class="{ 'el-icon-monitor': true, select: !showMobile }"
+            <component
+              :is="useRenderIcon('ep-platform')"
+              :class="{ select: !showMobile }"
               @click="showMobile = false"
             />
           </el-tooltip>
@@ -262,7 +266,10 @@ defineExpose({ validate });
                           >{{ element.title }}
                         </p>
                         <div class="option">
-                          <i class="el-icon-close" @click="del(index)" />
+                          <component
+                            :is="useRenderIcon('close')"
+                            @click="del(index)"
+                          />
                         </div>
                         <FormDesignRender :config="element" />
                       </div>
@@ -404,27 +411,21 @@ defineExpose({ validate });
 }
 
 .layout-main {
-  background-color: #feffff;
-
   .tool-nav {
     font-size: medium;
     padding: 8px 20px;
-    background: #fafafb;
     border-bottom: 1px solid #ebecee;
 
     div:first-child {
-      display: inline-block;
-      text-align: left;
-
-      i {
+      svg {
         margin-right: 10px;
       }
     }
 
     div:last-child {
-      float: right;
+      display: flex;
 
-      i {
+      svg {
         margin-left: 10px;
       }
     }
@@ -443,9 +444,9 @@ defineExpose({ validate });
     margin: 0 auto;
     height: calc(100% - 38px);
     overflow-y: auto;
-    background: rgb(245, 246, 246);
-    border-left: 1px solid rgb(235, 236, 238);
-    border-right: 1px solid rgb(235, 236, 238);
+    // background: rgb(245, 246, 246);
+    // border-left: 1px solid rgb(235, 236, 238);
+    // border-right: 1px solid rgb(235, 236, 238);
 
     .pc {
       margin-top: 4%;

@@ -38,6 +38,8 @@ import UserFilled from "@iconify-icons/ep/user-filled";
 import Plus from "@iconify-icons/ep/plus";
 import Promotion from "@iconify-icons/ep/promotion";
 import Back from "@iconify-icons/ep/back";
+import RefreshLeft from "@iconify-icons/ep/refresh-left";
+import View from "@iconify-icons/ep/view";
 addIcon("check", Check);
 addIcon("menu", Menu);
 addIcon("home-filled", HomeFilled);
@@ -74,6 +76,8 @@ addIcon("ep-user-filled", UserFilled);
 addIcon("plus", Plus);
 addIcon("promotion", Promotion);
 addIcon("back", Back);
+addIcon("refresh-left", RefreshLeft);
+addIcon("view", View);
 
 // remixicon
 import ArrowRightSLine from "@iconify-icons/ri/arrow-right-s-line";

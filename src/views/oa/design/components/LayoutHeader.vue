@@ -79,7 +79,7 @@ check();
 
 <template>
   <div>
-    <div class="header">
+    <div class="header bg-bg_color">
       <el-menu
         :default-active="modelValue"
         class="el-menu-demo"
