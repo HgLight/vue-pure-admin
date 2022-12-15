@@ -7,7 +7,7 @@ import { useRoute, useRouter } from "vue-router";
 import { ref, computed, onBeforeUnmount } from "vue";
 
 import { useOAStoreHook } from "@/store/modules/oa";
-// import FormDesign from "./components/FormDesign.vue";
+import FormDesign from "./components/FormDesign.vue";
 import LayoutHeader from "./components/LayoutHeader.vue";
 // import ProcessDesign from "./components/ProcessDesign.vue";
 import FormProSetting from "./components/FormProSetting.vue";
@@ -270,8 +270,8 @@ design.value.groupId = !isEmpty(group) ? parseInt(group) : null;
         ref="baseSetting"
         v-show="activeSelect === 'baseSetting'"
       />
-      <!-- <form-design ref="formSetting" v-show="activeSelect === 'formSetting'" />
-      <process-design
+      <FormDesign ref="formSetting" v-show="activeSelect === 'formSetting'" />
+      <!-- <process-design
         ref="processDesign"
         v-show="activeSelect === 'processDesign'"
       /> -->

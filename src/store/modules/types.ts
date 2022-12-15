@@ -38,10 +38,17 @@ export type NodePropsGroupsType = {
   cids: string;
   conditions: Array<any>;
 };
+export type FormItemPropsType = {
+  items: Array<any>;
+  required: boolean;
+  enablePrint: boolean;
+};
 export type FormItemType = {
   id: string;
   title: string;
   icon: string;
+  name: string;
+  props: FormItemPropsType;
 };
 export type OAType = {
   nodeMap: Map<any, any>;
@@ -88,7 +95,7 @@ export type OAType = {
       };
       children: {};
     };
-    formItems: [];
+    formItems: FormItemType[];
     remark: string;
   };
 };
