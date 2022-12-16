@@ -13,6 +13,13 @@ import {
 
 import DefaultProps from "./DefaultNodeProps";
 import { useOAStoreHook } from "@/store/modules/oa";
+import Approval from "./nodes/Approval.vue";
+import Cc from "./nodes/Cc.vue";
+import Concurrent from "./nodes/Concurrent.vue";
+import Condition from "./nodes/Condition.vue";
+import Trigger from "./nodes/Trigger.vue";
+import Delay from "./nodes/Delay.vue";
+import Empty from "./nodes/Empty.vue";
 import Node from "./nodes/Node.vue";
 import Root from "./nodes/Root.vue";
 
@@ -20,7 +27,17 @@ import "./process.css";
 export default defineComponent({
   name: "ProcessTree",
   emits: ["selectedNode"],
-  components: { Root, Node },
+  components: {
+    Root,
+    Node,
+    Empty,
+    Delay,
+    Trigger,
+    Condition,
+    Concurrent,
+    Cc,
+    Approval
+  },
   setup(props, { emit }) {
     const { ctx } = getCurrentInstance();
     const valid = ref(true);
@@ -28,10 +45,12 @@ export default defineComponent({
     const { nodeMap, selectedNode, design } = storeToRefs(useOAStoreHook());
 
     const dom = computed(() => {
+      console.log(design.value.process);
       return design.value.process;
     });
 
     function getDomTree(node) {
+      debugger;
       console.log("node", node);
       toMapping(node);
       if (isPrimaryNode(node)) {
