@@ -9,7 +9,7 @@ import { ref, computed, onBeforeUnmount } from "vue";
 import { useOAStoreHook } from "@/store/modules/oa";
 import FormDesign from "./components/FormDesign.vue";
 import LayoutHeader from "./components/LayoutHeader.vue";
-// import ProcessDesign from "./components/ProcessDesign.vue";
+import ProcessDesign from "./components/ProcessDesign.vue";
 import FormProSetting from "./components/FormProSetting.vue";
 import FormBaseSetting from "./components/FormBaseSetting.vue";
 import { getFormDetail, createForm, updateFormDetail } from "@/api/design";
@@ -271,10 +271,10 @@ design.value.groupId = !isEmpty(group) ? parseInt(group) : null;
         v-show="activeSelect === 'baseSetting'"
       />
       <FormDesign ref="formSetting" v-show="activeSelect === 'formSetting'" />
-      <!-- <process-design
+      <ProcessDesign
         ref="processDesign"
         v-show="activeSelect === 'processDesign'"
-      /> -->
+      />
       <FormProSetting ref="proSetting" v-show="activeSelect === 'proSetting'" />
     </div>
     <WDialog :showFooter="false" v-model="validVisible" title="设置项检查">

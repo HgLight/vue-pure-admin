@@ -29,8 +29,8 @@ defineExpose({ validate });
 
 watch(
   () => props.config,
-  newVal => {
-    console.log("FormDesignRender watch props.config", newVal);
+  _newVal => {
+    // console.log("FormDesignRender watch props.config", _newVal);
   },
   { immediate: true }
 );
@@ -45,5 +45,3 @@ watch(
     v-bind="config.props"
   />
 </template>
-
-<style lang="less" scoped></style>
