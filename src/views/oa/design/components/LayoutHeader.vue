@@ -5,6 +5,7 @@ import { useRouter } from "vue-router";
 import { ElMessageBox } from "element-plus";
 
 import { useOAStoreHook } from "@/store/modules/oa";
+import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 
 defineOptions({
   name: "LayoutHeader"
@@ -100,23 +101,34 @@ check();
         >
       </el-menu>
       <div class="publish">
-        <el-button size="small" @click="preview"
-          ><i class="el-icon-view" />预览</el-button
-        >
-        <el-button size="small" type="primary" @click="publish"
-          ><i class="el-icon-s-promotion" />发布</el-button
-        >
-      </div>
-      <div class="back">
         <el-button
-          @click="exit"
           size="small"
-          icon="el-icon-arrow-left"
+          type="default"
+          :icon="useRenderIcon('view')"
+          @click="preview"
+        >
+          预览
+        </el-button>
+        <el-button
+          size="small"
+          type="primary"
+          :icon="useRenderIcon('promotion')"
+          @click="publish"
+        >
+          发布
+        </el-button>
+      </div>
+      <div class="back flex items-center">
+        <el-button
+          class="mr-1"
+          size="small"
+          :icon="useRenderIcon('ep-arrow-left')"
           circle
+          @click="exit"
         />
-        <span>
-          <i
-            :class="design.logo.icon"
+        <span class="flex items-center">
+          <component
+            :is="useRenderIcon(design.logo.icon)"
             :style="'background:' + design.logo.background"
           />
           <span>{{ design.formName }}</span>
@@ -166,12 +178,12 @@ check();
   .back {
     position: absolute;
     z-index: 1000;
-    top: 10px;
+    top: 15px;
     left: 20px;
     font-size: small;
 
     span {
-      i {
+      svg {
         border-radius: 10px;
         padding: 7.8px;
         font-size: 20px;

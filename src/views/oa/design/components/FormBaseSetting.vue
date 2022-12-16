@@ -8,6 +8,7 @@ import { useOAStoreHook } from "@/store/modules/oa";
 import iconfont from "@/assets/iconfont/iconfont.json";
 import OrgPicker from "@/components/common/OrgPicker.vue";
 import { getFormGroups, updateGroup } from "@/api/design";
+import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 
 defineOptions({
   name: "FormBaseSetting"
@@ -198,7 +199,9 @@ loadIconfont();
               <el-button type="primary" @click="addGroup">提交</el-button>
             </template>
             <template #reference>
-              <el-button icon="el-icon-plus" type="primary">新建分组</el-button>
+              <el-button :icon="useRenderIcon('plus')" type="primary"
+                >新建分组</el-button
+              >
             </template>
           </el-input>
         </el-popover>
