@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch } from "vue";
+import { ref, watch } from "vue";
 import components from "@/views/oa/common/form/ComponentExport";
 
 defineOptions({
@@ -22,8 +22,10 @@ const props = defineProps({
   }
 });
 
+const formRef = ref();
+
 function validate(call) {
-  this.$refs.form.validate(call);
+  formRef.value.validate(call);
 }
 defineExpose({ validate });
 
@@ -38,7 +40,7 @@ watch(
 
 <template>
   <component
-    ref="form"
+    ref="formRef"
     :is="components[config.name]"
     :mode="mode"
     :modelValue="modelValue"

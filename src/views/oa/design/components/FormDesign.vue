@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { storeToRefs } from "pinia";
+import { ElMessageBox } from "element-plus";
 import draggable from "vuedraggable/src/vuedraggable";
 
 import { useOAStoreHook } from "@/store/modules/oa";
@@ -38,7 +39,7 @@ function getId() {
   );
 }
 function del(index) {
-  this.$confirm(
+  ElMessageBox.confirm(
     "删除组件将会连带删除包含该组件的条件以及相关设置，是否继续?",
     "提示",
     {

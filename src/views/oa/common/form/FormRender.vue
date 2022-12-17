@@ -22,10 +22,11 @@ const props = defineProps({
 });
 
 const rules = ref({});
+const formRef = ref();
 
 function validate(call) {
   let success = true;
-  this.$refs.form.validate(valid => {
+  formRef.value.validate(valid => {
     success = valid;
     if (valid) {
       //校验成功再校验内部
@@ -57,14 +58,14 @@ function loadFormConfig(forms) {
       // props.modelValue[item.id] = props.modelValue[item.id];
       // emit("update:modelValue", props.modelValue);
       if (item.props.required) {
-        this.$set(this.rules, item.id, [
+        rules.value[item.id] = [
           {
             type: item.valueType === "Array" ? "array" : undefined,
             required: true,
             message: `请填写${item.title}`,
             trigger: "blur"
           }
-        ]);
+        ];
       }
     }
   });
@@ -76,7 +77,7 @@ loadFormConfig(props.forms);
 <template>
   <!--渲染表单-->
   <el-form
-    ref="form"
+    ref="formRef"
     class="process-form"
     label-position="top"
     :rules="rules"
