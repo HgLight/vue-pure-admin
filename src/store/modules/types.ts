@@ -61,6 +61,16 @@ export type OAType = {
     props: {
       formPerms: Array<FormPermsType>;
       groups: Array<any>;
+      groupsType: string;
+      expression: string;
+      assignedUser: Array<any>;
+      shouldAdd: boolean;
+      type: string;
+      time: number;
+      unit: string;
+      dateTime: string;
+      http;
+      email;
     };
   };
   selectFormItem: FormItemType;

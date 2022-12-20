@@ -3,8 +3,8 @@ import { ref, watch } from "vue";
 import { storeToRefs } from "pinia";
 
 import { useOAStoreHook } from "@/store/modules/oa";
-import ProcessTree from "./process/ProcessTree";
-// import NodeConfig from "../../common/process/config/NodeConfig";
+import ProcessTree from "./process/ProcessTree.vue";
+import NodeConfig from "./process/config/NodeConfig.vue";
 
 defineOptions({
   name: "ProcessDesign"
@@ -27,7 +27,8 @@ function nodeSelected(node) {
   console.log("配置节点", node);
   showConfig.value = true;
 }
-watch(selectedNode, () => {
+watch(selectedNode, newVal => {
+  console.log("newVal", newVal);
   /*selectedNode:{
       deep: true,
       handler(node){
@@ -64,7 +65,7 @@ watch(selectedNode, () => {
     <el-drawer
       v-if="selectedNode"
       :title="selectedNode.name"
-      v-model:visible="showConfig"
+      v-model="showConfig"
       :modal-append-to-body="false"
       :size="selectedNode.type === 'CONDITION' ? '600px' : '500px'"
       direction="rtl"
@@ -92,7 +93,7 @@ watch(selectedNode, () => {
       </template>
 
       <div class="node-config-content">
-        <!-- <NodeConfig /> -->
+        <NodeConfig />
       </div>
     </el-drawer>
   </el-main>

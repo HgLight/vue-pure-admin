@@ -28,7 +28,12 @@ export const useOAStore = defineStore({
       return this.design;
     }
   },
-  actions: {}
+  actions: {
+    setSelectedNode(selectedNode) {
+      console.log("selectedNode", selectedNode);
+      this.selectedNode = selectedNode;
+    }
+  }
 });
 
 export function useOAStoreHook() {
